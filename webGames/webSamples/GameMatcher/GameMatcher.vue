@@ -29,6 +29,9 @@
     <div v-else-if="currentGame ==='mine-search'">
         <mine-search></mine-search>
     </div>
+    <div v-else-if="currentGame ==='calcurator-auto'">
+        <iframe src="http://localhost:8080/webSamples/1.1_calcuratorAuto/CalcuratorAuto.html"></iframe>
+    </div>
     <div v-else>일치하는 게임이 없습니다.</div>
 </template>
 <script>

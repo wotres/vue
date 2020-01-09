@@ -20,6 +20,9 @@
             <div>
                 <router-link to="/game/mine-search">8_지뢰찾기</router-link>
             </div>
+            <div>
+                <router-link to="/game/calcurator-auto">1.1_더하기 계산기</router-link>
+            </div>
             <div class="viewer">
                 <router-view></router-view>
             </div>
@@ -35,7 +38,6 @@
     window.onload = function() {
         console.log(location)
     }
-    //  const path = $(location).attr('pathname').split('/')[1]
 
 </script>
 <style>
