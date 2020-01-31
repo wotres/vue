@@ -1,0 +1,19 @@
+# 프레임워크
+Nuxt.js : 서버사이드 렌더링 앱을 생성하는 프레임워크
+Axios : 프런트엔드 HTTP
+
+# Nuxt 프로젝트 실행
+vue init nuxt-community/starter-template <project-name>
+npm install vuetify axios 
+npm install stylus stylus-loader -savedev
+
+# vuetify 사용법
+1. stylus stylus-loader 의존성 확인
+2. plugins/vuetify.js 파일 에서 Vue앱에 Vuetify 추가
+3. nuxt.config.js 아래 플러그인 추가
+4. nuxt.config.js 아래 css 추가
+5. asset/app.styl 파일 아래 Vuetify 스타일 임포트
+  @require '~vuetify/src/stylus/main'
+
+# link
+nuxt-link 는 router-link와 똑같이 작동

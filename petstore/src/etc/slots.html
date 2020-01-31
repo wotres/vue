@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <book-component :books="books">
+            <!-- 상위 컴포넌트에서 slot에 이름을 선언한 후 하위 호출 컴포넌트에서 name 을 받아 위치를 배치한다. -->
+            <h1 slot="header">{{header}}</h1>
+            <template slot="book" slot-scope="props">
+            <h2>
+            <i>{{props.text.title}}</i>
+            <small>by: {{props.text.author}}</small>
+            </h2>
+            </template>
+        </book-component>
+    </div>
+<script>
+const BookComponent ={
+  template: `
+    <div>
+        <slot name="header"></slot>
+        <slot name="book"
+            v-for="book in books"
+            :text="book">
+        </slot>
+    </div>
+  `,
+  props: ['books']
+}
+
+new Vue({
+  el: '#app',
+  components: {'book-component': BookComponent},
+  data() {
+    return {
+      header: '책 목록',
+      books: [{author: 'John Smith', title: 'Best Of Times' },
+              {author: 'Jane Doe', title: 'Go West Young Man' },
+              {author: 'Avery Katz', title: 'The Life And Times Of Avery' }
+              ]
+    }
+  }
+
+})
+</script>
+</body>
+</html>

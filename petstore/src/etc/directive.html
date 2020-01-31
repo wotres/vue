@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <div id='app'>
+      <!-- 모든 커스텀 지시자는 v- 로 시작함 
+            케밥케이스, 아래 요소는 카멜 케이스로-->
+      <p v-style-me>
+          {{welcome}}
+      </p>
+      <div v-style-me>안녕하세요 여러분</div>
+  </div>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        welcome: '안녕하세요'
+      }
+    },
+    // 지시자 등록된곳
+    directives: {
+      // el: 지시자가 바인딩된 요소
+      // vnode: Vue 컴파일러가 생성한 가상 노드
+      // oldVnode: 이전 가상노드 
+      styleMe(el, binding, vnode, oldVnode) {
+        bind: { // 바인드 훅
+          el.style.color = "blue"
+          el.style.fontSize= "42px";
+          el.className="text-center";
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# vue 스캐폴딩도구인 vue-cli 설치
+npm install -g vue-cli
+
+# 웹팩 템플릿을 사용해서 어플리케이션 생성
+vue init webpack petstore
+
+# 서버 실행
+npm install
+npm run dev
+
+# vuex(store 상태관리 라이브러리) 설치
+npm install vuex
+
+v-model 은 v-bind + v-on 같은것
+v-bind는 주로 html 요소의 속성에 값을 바인딩에 사용(속성값을 불러와 화면에 표시)
+v-model 을 통해 양방향 바인딩을 구현
+
+# vue-cli 에서 eslint 끄는 법
+config/index.js
+파일에서 아래와 같이 true를 false로 변환한다.
+useEslint: false,
+
+# 경로 변경 하는 방법
+1. 템플릿 안에 요소를 추가하는 방법
+<router-link></router-link>
+2. Vue 인스턴스 내부에서 push 사용
+this.$router.push
+<router-view></router-view>
+
+# vue 파이어 베이스 연결 -> 버젼따라 오류위험
+npm install firebase vuefire -save
+
+# 테스트 하는법
+webpack.base.conf.js 부분에 테스트 환경 설정
+setup.js 부분에 jsdom-global설정
+package.json 파일에 테스트 스크립트 업데이트 
+
+
+# test 를 위한 mocha mocha-webpack 설치
+npm install --save-dev @vue/test-utils mocha-webpack
+
+# 헤드리스 브라우저 실행 
+npm install --save-dev jsdom jsdom-global 
+
+# 어설션 라이브러리 설치
+npm install --save-dev expect webpack-node-externals

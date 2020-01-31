@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <div id='app'>
+      <!-- 
+          binding.value 로 바인딩 가능
+          객체 리터널을 사용해서 여러값을 보낼 수 있음
+          v-style-me="{color: 'orange', text: 'Hi there!'}"
+          아래와 같이 한번에 합침도 가능
+          = 뒤에는 value
+          : 뒤에는 arg 와 modifiers(.으로 연결)
+      -->
+      <p v-style-me:text-center.large="'red'">
+          {{welcome}}
+      </p>
+      <!-- 수정자만 포함 -->
+      <div v-style-me.small>안녕하세요 여러분</div>
+  </div>
+<script>
+  // 전역 지시자 선언
+  Vue.directive('style-me', {
+    // 전역 지시자는 바인드 훅을 사용
+    bind(el, binding) {
+      el.style.color = binding.value || "blue";
+      // binding.modifiers 를 통해 TF
+      if (binding.modifiers.large)
+        el.style.fontSize = "42px";
+      else if (binding.modifiers.small)
+        el.style.fontSize = "17px";
+
+      el.className = binding.arg;
+    }
+  });
+
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        welcome: '안녕하세요'
+      }
+    }
+  });
+</script>
+</body>
+</html>
